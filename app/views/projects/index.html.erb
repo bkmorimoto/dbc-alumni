@@ -8,5 +8,6 @@
   <% project.members.each do |member| %>
     <%= member.name %><br>
   <% end %>
+  <%= link_to "Join Team", "/projects/#{project.id}/join", method: :put %><br>
   <br>
 <% end %>
