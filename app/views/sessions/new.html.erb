@@ -1,7 +1,9 @@
 <%= form_for @user, url: sessions_path do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
-  <%= f.submit "Sign In" %>
+  <div class="row">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.submit "Sign In", class: 'button small radius' %>
+  </div>
 <% end %>
