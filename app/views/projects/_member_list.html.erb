@@ -1,0 +1,7 @@
+<ul class="no-bullet">
+  <li>Project Members:</li>
+  <% project.members.each do |member| %>
+    <li><%= member.name %></li>
+  <% end %>
+  <%= button_to "Join Team", "/projects/#{project.id}/join", method: :put, class: 'join-button button tiny radius success' %>
+</ul>
