@@ -23,7 +23,11 @@ class ProjectsController < ApplicationController
       project.members << current_user
       project.save
     end
-    redirect_to root_path
+    if request.xhr?
+      render partial: 'member_list', locals: {project: project}
+    else
+      redirect_to root_path
+    end
   end
 
   def project_params
