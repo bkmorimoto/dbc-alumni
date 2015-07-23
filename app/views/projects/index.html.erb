@@ -1,12 +1,24 @@
-<%= link_to 'Add Project', new_project_path %><br>
-<% @projects.each do |project| %>
-  Project Name: <%= project.name %><br>
-  Project Description: <%= project.description %><br>
-  Project Lead: <%= project.lead.name %><br>
-  <br>
-  Project Members:
-  <% project.members.each do |member| %>
-    <%= member.name %><br>
+<div class="project-list">
+  <%= button_to 'Add Project', new_project_path, class: 'button small radius' %>
+  <h2>Project List</h2>
+  <% @projects.each do |project| %>
+    <div class="project-container">
+      <div class="project-info">
+        <ul class="vcard">
+          <li class="fn"><%= project.name %></li>
+          <li>Description: <%= project.description %></li>
+          <li>Project Lead: <%= project.lead.name %></li>
+        </ul>
+      </div>
+      <div class="project-members">
+        <ul class="no-bullet">
+          <li>Project Members:</li>
+          <% project.members.each do |member| %>
+            <li><%= member.name %></li>
+          <% end %>
+          <%= button_to "Join Team", "/projects/#{project.id}/join", method: :put, class: 'button tiny radius success' %>
+        </ul>
+      </div>
+    </div>
   <% end %>
-  <br>
-<% end %>
+</div>

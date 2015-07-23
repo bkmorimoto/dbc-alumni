@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :projects
   resources :users
   resource :sessions
+
+  put 'projects/:id/join', to: 'projects#add_member'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
